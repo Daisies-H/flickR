@@ -1,3 +1,3 @@
-# `@typescript/typescript-darwin-arm64`
+# caniuse-lite
 
-This package provides darwin-arm64 support for [typescript](https://www.npmjs.com/package/typescript).
+A smaller version of caniuse-db, with only the essentials!
