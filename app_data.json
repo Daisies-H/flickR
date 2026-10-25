@@ -1,0 +1,1985 @@
+{
+ "typical": {
+  "dist_transformer_m": 33,
+  "dist_protective_m": 118,
+  "customers_within_200m": 71
+ },
+ "labor": {
+  "hours_per_item": {
+   "Pole": 3.43,
+   "Wire": 1.366,
+   "Switch": 1.636,
+   "Equipment": 1.994,
+   "Light": 0.871
+  },
+  "indirect_labor_multiplier": 4.5,
+  "hard_access_adder_hours": 0.5
+ },
+ "model": {
+  "auc": 0.709,
+  "top10pct_captures_damaged_pct": 26,
+  "note": "tested on map areas the model never saw"
+ },
+ "locations": [
+  {
+   "label": "Location 1001",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 42,
+    "customers_within_200m": 49
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 11
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 20
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 708
+    }
+   ]
+  },
+  {
+   "label": "Location 1002",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 88,
+    "dist_protective_m": 85,
+    "customers_within_200m": 7
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 69
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 142
+    },
+    {
+     "name": "On the line: Fuse, #3 away from you",
+     "customers": 158
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 261
+    }
+   ]
+  },
+  {
+   "label": "Location 1003",
+   "band": "High",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 31,
+    "dist_protective_m": 405,
+    "customers_within_200m": 7
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 20
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 65
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 104
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1166
+    }
+   ]
+  },
+  {
+   "label": "Location 1004",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 60,
+    "dist_protective_m": 121,
+    "customers_within_200m": 24
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 16
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 73
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 229
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1551
+    }
+   ]
+  },
+  {
+   "label": "Location 1005",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 24,
+    "dist_protective_m": 161,
+    "customers_within_200m": 19
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 5
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 23
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 196
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #3 away from you",
+     "customers": 907
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #4 away from you",
+     "customers": 2811
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 3527
+    }
+   ]
+  },
+  {
+   "label": "Location 1006",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 43,
+    "dist_protective_m": 189,
+    "customers_within_200m": 35
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 50
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 574
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1563
+    }
+   ]
+  },
+  {
+   "label": "Location 1007",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 21,
+    "dist_protective_m": 152,
+    "customers_within_200m": 4
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 142
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 283
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 580
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1181
+    }
+   ]
+  },
+  {
+   "label": "Location 1008",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 24,
+    "dist_protective_m": 198,
+    "customers_within_200m": 16
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 25
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 196
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 788
+    }
+   ]
+  },
+  {
+   "label": "Location 1009",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 74,
+    "customers_within_200m": 10
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 160
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 430
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 833
+    }
+   ]
+  },
+  {
+   "label": "Location 1010",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 24,
+    "dist_protective_m": 36,
+    "customers_within_200m": 4
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 10
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 112
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1563
+    }
+   ]
+  },
+  {
+   "label": "Location 1011",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 38,
+    "dist_protective_m": 147,
+    "customers_within_200m": 20
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 93
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1551
+    }
+   ]
+  },
+  {
+   "label": "Location 1012",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 39,
+    "dist_protective_m": 88,
+    "customers_within_200m": 14
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 70
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 70
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 207
+    },
+    {
+     "name": "On the line: Fuse, #3 away from you",
+     "customers": 70
+    },
+    {
+     "name": "On the line: Fuse, #4 away from you",
+     "customers": 220
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #5 away from you",
+     "customers": 1333
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #6 away from you",
+     "customers": 2811
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 3527
+    }
+   ]
+  },
+  {
+   "label": "Location 1013",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 26,
+    "dist_protective_m": 154,
+    "customers_within_200m": 1
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 56
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 182
+    },
+    {
+     "name": "On the line: Fuse, #4 away from you",
+     "customers": 173
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 182
+    },
+    {
+     "name": "On the line: Fuse, #5 away from you",
+     "customers": 173
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #6 away from you",
+     "customers": 788
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #7 away from you",
+     "customers": 1296
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1685
+    }
+   ]
+  },
+  {
+   "label": "Location 1014",
+   "band": "High",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 24,
+    "dist_protective_m": 119,
+    "customers_within_200m": 2
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 15
+    },
+    {
+     "name": "On the line: Fuse, #3 away from you",
+     "customers": 17
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #4 away from you",
+     "customers": 112
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1563
+    }
+   ]
+  },
+  {
+   "label": "Location 1015",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 47,
+    "dist_protective_m": 118,
+    "customers_within_200m": 28
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 22
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 333
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 685
+    }
+   ]
+  },
+  {
+   "label": "Location 1016",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 56,
+    "dist_protective_m": 143,
+    "customers_within_200m": 36
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 7
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 13
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 19
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 809
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1151
+    }
+   ]
+  },
+  {
+   "label": "Location 1017",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 145,
+    "customers_within_200m": 54
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 78
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 122
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 485
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1271
+    }
+   ]
+  },
+  {
+   "label": "Location 1018",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 28,
+    "dist_protective_m": 340,
+    "customers_within_200m": 16
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 112
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #2 away from you",
+     "customers": 673
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #3 away from you",
+     "customers": 1009
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #4 away from you",
+     "customers": 1615
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1889
+    }
+   ]
+  },
+  {
+   "label": "Location 1019",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 26,
+    "dist_protective_m": 218,
+    "customers_within_200m": 7
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 48
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #3 away from you",
+     "customers": 981
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1541
+    }
+   ]
+  },
+  {
+   "label": "Location 1020",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 64,
+    "dist_protective_m": 111,
+    "customers_within_200m": 22
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 11
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 21
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 84
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 997
+    }
+   ]
+  },
+  {
+   "label": "Location 1021",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 47,
+    "dist_protective_m": 178,
+    "customers_within_200m": 19
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 48
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 73
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 229
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1551
+    }
+   ]
+  },
+  {
+   "label": "Location 1022",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 17,
+    "dist_protective_m": 165,
+    "customers_within_200m": 4
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 92
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 265
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1563
+    }
+   ]
+  },
+  {
+   "label": "Location 1023",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 24,
+    "dist_protective_m": 180,
+    "customers_within_200m": 10
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 28
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 40
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 182
+    },
+    {
+     "name": "On the line: Fuse, #4 away from you",
+     "customers": 173
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 182
+    },
+    {
+     "name": "On the line: Fuse, #5 away from you",
+     "customers": 173
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #6 away from you",
+     "customers": 788
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #7 away from you",
+     "customers": 1296
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1685
+    }
+   ]
+  },
+  {
+   "label": "Location 1024",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 33,
+    "dist_protective_m": 219,
+    "customers_within_200m": 206
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 18
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 72
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1189
+    }
+   ]
+  },
+  {
+   "label": "Location 1025",
+   "band": "High",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 57,
+    "dist_protective_m": 708,
+    "customers_within_200m": 12
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 5
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 20
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 65
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 104
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1166
+    }
+   ]
+  },
+  {
+   "label": "Location 1026",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 150,
+    "customers_within_200m": 9
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 71
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 893
+    }
+   ]
+  },
+  {
+   "label": "Location 1027",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 37,
+    "dist_protective_m": 211,
+    "customers_within_200m": 5
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 150
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 200
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1406
+    }
+   ]
+  },
+  {
+   "label": "Location 1028",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 112,
+    "dist_protective_m": 55,
+    "customers_within_200m": 17
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 8
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 46
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 72
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 136
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1551
+    }
+   ]
+  },
+  {
+   "label": "Location 1029",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 17,
+    "dist_protective_m": 95,
+    "customers_within_200m": 13
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #1 away from you",
+     "customers": 813
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1477
+    }
+   ]
+  },
+  {
+   "label": "Location 1030",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 22,
+    "dist_protective_m": 140,
+    "customers_within_200m": 13
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 24
+    },
+    {
+     "name": "On the line: Fuse, #3 away from you",
+     "customers": 29
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #4 away from you",
+     "customers": 283
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #5 away from you",
+     "customers": 580
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1181
+    }
+   ]
+  },
+  {
+   "label": "Location 1031",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 170,
+    "customers_within_200m": 3
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 168
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #4 away from you",
+     "customers": 235
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #5 away from you",
+     "customers": 981
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1541
+    }
+   ]
+  },
+  {
+   "label": "Location 1032",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 23,
+    "dist_protective_m": 68,
+    "customers_within_200m": 14
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 7
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 362
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1063
+    }
+   ]
+  },
+  {
+   "label": "Location 1033",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 55,
+    "dist_protective_m": 252,
+    "customers_within_200m": 16
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 26
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1028
+    }
+   ]
+  },
+  {
+   "label": "Location 1034",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 55,
+    "dist_protective_m": 58,
+    "customers_within_200m": 20
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 56
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 405
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1233
+    }
+   ]
+  },
+  {
+   "label": "Location 1035",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 31,
+    "dist_protective_m": 63,
+    "customers_within_200m": 49
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 16
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 26
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 625
+    }
+   ]
+  },
+  {
+   "label": "Location 1036",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 43,
+    "dist_protective_m": 35,
+    "customers_within_200m": 98
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 9
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 16
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 1116
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1606
+    }
+   ]
+  },
+  {
+   "label": "Location 1037",
+   "band": "High",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 30,
+    "dist_protective_m": 340,
+    "customers_within_200m": 14
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 5
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 42
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 91
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 394
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #4 away from you",
+     "customers": 809
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1151
+    }
+   ]
+  },
+  {
+   "label": "Location 1038",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 37,
+    "dist_protective_m": 102,
+    "customers_within_200m": 143
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 11
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 186
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1631
+    }
+   ]
+  },
+  {
+   "label": "Location 1039",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 36,
+    "dist_protective_m": 104,
+    "customers_within_200m": 119
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 13
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 91
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1347
+    }
+   ]
+  },
+  {
+   "label": "Location 1040",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 34,
+    "dist_protective_m": 99,
+    "customers_within_200m": 78
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 13
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 49
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 142
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 621
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1406
+    }
+   ]
+  },
+  {
+   "label": "Location 1041",
+   "band": "Low",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 14,
+    "dist_protective_m": 126,
+    "customers_within_200m": 35
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 113
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 686
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1800
+    }
+   ]
+  },
+  {
+   "label": "Location 1042",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 59,
+    "dist_protective_m": 229,
+    "customers_within_200m": 3
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 57
+    },
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 57
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 299
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #3 away from you",
+     "customers": 813
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1477
+    }
+   ]
+  },
+  {
+   "label": "Location 1043",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 25,
+    "dist_protective_m": 92,
+    "customers_within_200m": 6
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 2
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 997
+    }
+   ]
+  },
+  {
+   "label": "Location 1044",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 31,
+    "dist_protective_m": 145,
+    "customers_within_200m": 162
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 12
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 260
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 1269
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1484
+    }
+   ]
+  },
+  {
+   "label": "Location 1045",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 39,
+    "dist_protective_m": 73,
+    "customers_within_200m": 120
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 18
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1601
+    }
+   ]
+  },
+  {
+   "label": "Location 1046",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 71,
+    "dist_protective_m": 241,
+    "customers_within_200m": 9
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 5
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 30
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 117
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1551
+    }
+   ]
+  },
+  {
+   "label": "Location 1047",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 18,
+    "dist_protective_m": 39,
+    "customers_within_200m": 57
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 8
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 8
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1232
+    }
+   ]
+  },
+  {
+   "label": "Location 1048",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 39,
+    "dist_protective_m": 150,
+    "customers_within_200m": 56
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 11
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 53
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #2 away from you",
+     "customers": 1861
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 2175
+    }
+   ]
+  },
+  {
+   "label": "Location 1049",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 30,
+    "dist_protective_m": 117,
+    "customers_within_200m": 16
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 7
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 7
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 73
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 141
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #4 away from you",
+     "customers": 719
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1233
+    }
+   ]
+  },
+  {
+   "label": "Location 1050",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 18,
+    "dist_protective_m": 35,
+    "customers_within_200m": 9
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 196
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 788
+    }
+   ]
+  },
+  {
+   "label": "Location 1051",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 59,
+    "dist_protective_m": 156,
+    "customers_within_200m": 34
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 25
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 25
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 28
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1171
+    }
+   ]
+  },
+  {
+   "label": "Location 1052",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 46,
+    "dist_protective_m": 65,
+    "customers_within_200m": 17
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 28
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1238
+    }
+   ]
+  },
+  {
+   "label": "Location 1053",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 41,
+    "dist_protective_m": 53,
+    "customers_within_200m": 104
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 27
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1583
+    }
+   ]
+  },
+  {
+   "label": "Location 1054",
+   "band": "Medium",
+   "confidence": "Low",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 35,
+    "dist_protective_m": 171,
+    "customers_within_200m": 36
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 35
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 493
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 2006
+    }
+   ]
+  },
+  {
+   "label": "Location 1055",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 28,
+    "dist_protective_m": 224,
+    "customers_within_200m": 3
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 1
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #1 away from you",
+     "customers": 22
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 69
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #3 away from you",
+     "customers": 142
+    },
+    {
+     "name": "On the line: Fuse, #4 away from you",
+     "customers": 158
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 261
+    }
+   ]
+  },
+  {
+   "label": "Location 1056",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 67,
+    "dist_protective_m": 93,
+    "customers_within_200m": 14
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 14
+    },
+    {
+     "name": "On the line: Recloser (Hydraulic), #2 away from you",
+     "customers": 196
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 788
+    }
+   ]
+  },
+  {
+   "label": "Location 1057",
+   "band": "Low",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 16,
+    "dist_protective_m": 82,
+    "customers_within_200m": 54
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 3
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 45
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #2 away from you",
+     "customers": 562
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 727
+    }
+   ]
+  },
+  {
+   "label": "Location 1058",
+   "band": "Medium",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": true,
+   "factors": {
+    "dist_transformer_m": 14,
+    "dist_protective_m": 70,
+    "customers_within_200m": 67
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 6
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 7
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 13
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1338
+    }
+   ]
+  },
+  {
+   "label": "Location 1059",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 86,
+    "dist_protective_m": 306,
+    "customers_within_200m": 3
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 4
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 26
+    },
+    {
+     "name": "On the line: Fuse, #3 away from you",
+     "customers": 32
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #4 away from you",
+     "customers": 673
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #5 away from you",
+     "customers": 1009
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #6 away from you",
+     "customers": 1615
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1889
+    }
+   ]
+  },
+  {
+   "label": "Location 1060",
+   "band": "High",
+   "confidence": "Medium",
+   "reliable": true,
+   "critical_nearby": false,
+   "factors": {
+    "dist_transformer_m": 17,
+    "dist_protective_m": 196,
+    "customers_within_200m": 12
+   },
+   "levels": [
+    {
+     "name": "Equipment right near you (transformer)",
+     "customers": 2
+    },
+    {
+     "name": "On the line: Fuse, #1 away from you",
+     "customers": 27
+    },
+    {
+     "name": "On the line: Fuse, #2 away from you",
+     "customers": 53
+    },
+    {
+     "name": "On the line: Recloser (Electronic), #3 away from you",
+     "customers": 211
+    },
+    {
+     "name": "Main circuit breaker at the substation",
+     "customers": 1004
+    }
+   ]
+  }
+ ]
+}
