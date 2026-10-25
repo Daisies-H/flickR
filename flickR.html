@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Living Bulb · AI Outage Concierge</title>
+<style>
+  :root{
+    --bg:#14171f; --bg-dark:#05060a; --ink:#f4efe6; --muted:#9aa3b2;
+    --amber:#ffb83d; --green:#46c98b; --card:#1d222d; --line:#2b3242;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    transition:background 1.6s ease;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.dark{background:var(--bg-dark)}
+  body.dark .panel,body.dark .card{opacity:.92}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px;display:grid;gap:26px}
+  header{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .badge{display:inline-flex;gap:8px;align-items:center;padding:7px 14px;border-radius:999px;font-size:12px;letter-spacing:.06em;font-weight:600;
+    background:rgba(255,184,61,.14);color:var(--amber);border:1px solid rgba(255,184,61,.35);transition:all .5s}
+  .badge.confirmed{background:rgba(70,201,139,.14);color:var(--green);border-color:rgba(70,201,139,.4)}
+  .badge.low{background:rgba(154,163,178,.14);color:var(--muted);border-color:rgba(154,163,178,.35)}
+  .badge i{width:8px;height:8px;border-radius:50%;background:currentColor;display:inline-block}
+
+  /* ---------- the bulb ---------- */
+  .stage{position:relative;display:grid;place-items:center;height:400px}
+  .glow{
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,var(--glow-color,#ffb83d) 0%,rgba(255,184,61,.25) 38%,transparent 68%);
+    filter:blur(14px);opacity:var(--glow-op,1);
+    animation:flicker var(--flicker-dur,0s) infinite ease-in-out;
+    transition:opacity .8s,background .8s;
+  }
+  @keyframes flicker{
+    0%,100%{opacity:var(--glow-op,1)}
+    12%{opacity:calc(var(--glow-op,1) * (1 - var(--amp,0)))}
+    18%{opacity:var(--glow-op,1)}
+    45%{opacity:calc(var(--glow-op,1) * (1 - var(--amp,0) * .6))}
+    52%{opacity:var(--glow-op,1)}
+    80%{opacity:calc(var(--glow-op,1) * (1 - var(--amp,0) * .85))}
+  }
+  svg.bulb{position:relative;width:190px;height:300px;overflow:visible}
+  .glass{fill:var(--glass,rgba(255,200,90,.5));stroke:rgba(255,255,255,.35);stroke-width:2;transition:fill .8s}
+  .fil{stroke:var(--fil,#fff3c9);stroke-width:3;fill:none;stroke-linecap:round;transition:stroke .8s;filter:drop-shadow(0 0 6px var(--fil,#fff3c9))}
+  .base{fill:#4a4f5c}
+  .base2{fill:#383c47}
+
+  .headline{text-align:center;font-size:clamp(22px,3.4vw,34px);font-weight:650;letter-spacing:-.01em;line-height:1.25;min-height:2.6em}
+  .sub{text-align:center;color:var(--muted);font-size:15px;margin-top:-14px}
+
+  /* ---------- restoration window ---------- */
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 24px;transition:opacity 1s}
+  .panel h3{margin:0 0 4px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .window-text{font-size:22px;font-weight:650;margin:6px 0 16px}
+  .track{position:relative;height:34px;border-radius:17px;background:#10131a;border:1px solid var(--line);overflow:hidden}
+  .arc{position:absolute;top:3px;bottom:3px;border-radius:14px;
+    background:linear-gradient(90deg,transparent,var(--amber),var(--amber),transparent);
+    filter:blur(var(--blur,6px));transition:left .7s cubic-bezier(.2,.8,.2,1),width .7s cubic-bezier(.2,.8,.2,1),filter .7s,background .5s;
+  }
+  .arc.confirmed{background:linear-gradient(90deg,var(--green),var(--green));filter:blur(0)}
+  .ticks{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:8px}
+
+  /* ---------- controls ---------- */
+  .controls{display:grid;gap:18px}
+  .ctl label{display:flex;justify-content:space-between;font-size:15px;margin-bottom:8px}
+  .ctl label b{font-variant-numeric:tabular-nums;color:var(--amber)}
+  input[type=range]{width:100%;height:34px;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:4px;background:linear-gradient(90deg,#3a4256,#566079)}
+  input[type=range]::-moz-range-track{height:8px;border-radius:4px;background:linear-gradient(90deg,#3a4256,#566079)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;margin-top:-11px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+  input[type=range]::-moz-range-thumb{width:30px;height:30px;border:0;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+  .toggles{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+  .toggles label{display:flex;align-items:center;gap:8px;cursor:pointer}
+  .toggles input{width:18px;height:18px;accent-color:var(--amber)}
+
+  /* ---------- lower grid ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}.stage{height:340px}}
+  .check{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:10px}
+  .check li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.4}
+  .check li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:6px;border:2px solid var(--amber)}
+  .check li.safety{color:#ffd9a8}
+  .check li.safety::before{background:var(--amber)}
+
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
+  .tab{border:1px solid var(--line);background:transparent;color:var(--muted);padding:7px 12px;border-radius:999px;font-size:13px;cursor:pointer;transition:all .25s}
+  .tab.on{background:var(--ink);color:#14171f;border-color:var(--ink);font-weight:600}
+  .msg{background:#f4efe6;color:#14171f;border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.45;min-height:110px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+  .msg small{display:block;color:#6b6f78;font-size:12px;margin-bottom:6px;letter-spacing:.04em}
+  @keyframes rise{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+
+  .why{color:var(--muted);font-size:13px;line-height:1.55}
+  .why b{color:var(--ink);font-weight:600}
+  .area{display:flex;align-items:center;gap:14px;margin-top:14px;font-size:13px;color:var(--muted)}
+  .blob{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle,var(--glow-color,#ffb83d),transparent 70%);filter:blur(5px);flex:none}
+  footer{color:var(--muted);font-size:12px;text-align:center;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span>AI Outage Concierge</span>
+    <span class="badge" id="badge"><i></i><span id="badgeText">Model estimate</span></span>
+  </header>
+
+  <section class="stage" aria-live="polite">
+    <div class="glow" id="glow"></div>
+    <svg class="bulb" viewBox="0 0 190 300" role="img" aria-label="Light bulb showing your outage risk">
+      <path class="glass" d="M95 8C45 8 14 44 14 92c0 34 16 54 30 72 9 12 14 22 14 36v10h74v-10c0-14 5-24 14-36 14-18 30-38 30-72C176 44 145 8 95 8z"/>
+      <path class="fil" d="M72 210V150c0-12 10-18 23-18s23 6 23 18v60M72 150c10-10 36-10 46 0"/>
+      <rect class="base" x="58" y="210" width="74" height="22" rx="5"/>
+      <rect class="base2" x="62" y="236" width="66" height="18" rx="5"/>
+      <rect class="base" x="70" y="258" width="50" height="16" rx="8"/>
+    </svg>
+  </section>
+
+  <div class="headline" id="headline"></div>
+  <div class="sub" id="sub"></div>
+
+  <section class="panel" id="windowPanel">
+    <h3>Likely back on</h3>
+    <div class="window-text" id="windowText"></div>
+    <div class="track"><div class="arc" id="arc"></div></div>
+    <div class="ticks"><span>Now</span><span>12 h</span><span>24 h</span><span>36 h</span><span>48 h+</span></div>
+  </section>
+
+  <section class="panel controls">
+    <h3>Drag to change the storm</h3>
+    <div class="ctl"><label for="wind">Wind gusts <b id="windV"></b></label>
+      <input id="wind" type="range" min="10" max="90" value="45"></div>
+    <div class="ctl"><label for="trees">Trees / poles down on your circuit <b id="treesV"></b></label>
+      <input id="trees" type="range" min="0" max="40" value="6"></div>
+    <div class="ctl"><label for="crews">Crews available <b id="crewsV"></b></label>
+      <input id="crews" type="range" min="0" max="20" value="6"></div>
+    <div class="toggles">
+      <label><input type="checkbox" id="medical"> Customer declared a medical-equipment need</label>
+      <label><input type="checkbox" id="confirmed"> Simulate a utility-confirmed estimate</label>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="panel">
+      <h3>Your plan</h3>
+      <ul class="check" id="checklist"></ul>
+    </section>
+    <section class="panel">
+      <h3>What we'd send you</h3>
+      <div class="tabs" id="tabs"></div>
+      <div class="msg" id="msg"></div>
+      <div class="area"><div class="blob"></div><span id="alertLine"></span></div>
+    </section>
+  </div>
+
+  <section class="panel why" id="why"></section>
+
+  <footer>
+    Prototype · placeholder model for demonstration · estimates are ranges, not promises.<br>
+    We never show exact addresses or sensitive-facility locations, and we never infer medical or personal attributes.
+  </footer>
+</div>
+
+<script>
+/* =====================================================================
+   >>> MODEL_HOOK <<<  REPLACE THIS FUNCTION WITH YOUR TRAINED MODEL <<<
+   Input : { wind (mph), trees (count), crews (count) }
+   Output: { risk 0-1, low (hours), high (hours), confidence 0-1 }
+
+   Easiest swap (no server): run your model in Python over a grid of
+   wind/trees/crews, save as JSON, paste it into LOOKUP below, and have
+   predict() return the nearest row. Or fetch() a small local API.
+   ===================================================================== */
+function predict({wind, trees, crews}){
+  const z = -3 + 0.07*wind + 0.08*trees;
+  const risk = 1/(1+Math.exp(-z));
+  const mid = 1.5 + (trees*3.2)/Math.pow(crews+1, 0.8) + (wind>60 ? 2 : 0);
+  let low = Math.max(0.5, mid*0.6), high = mid*1.7;
+  let confidence = 0.86 - (crews===0?0.45:0) - (wind>70?0.15:0) - (trees>30?0.1:0);
+  confidence = Math.max(0.1, Math.min(0.95, confidence));
+  return {risk, low, high, confidence};
+}
+
+/* ------------------------------ UI ------------------------------ */
+const $ = id => document.getElementById(id);
+const els = {wind:$('wind'),trees:$('trees'),crews:$('crews'),medical:$('medical'),confirmed:$('confirmed')};
+let tab = 0;
+
+function clock(hours){
+  const t = new Date(Date.now()+hours*3600e3);
+  const same = t.toDateString()===new Date().toDateString();
+  const h = t.toLocaleTimeString([], {hour:'numeric'});
+  return same ? h : t.toLocaleDateString([], {weekday:'short'})+' '+h;
+}
+function dur(h){ return h<1 ? 'under an hour' : h<24 ? Math.round(h)+' hours' : (h/24).toFixed(1)+' days'; }
+
+function render(){
+  const s = {wind:+els.wind.value, trees:+els.trees.value, crews:+els.crews.value};
+  const medical = els.medical.checked, confirmed = els.confirmed.checked;
+  $('windV').textContent = s.wind+' mph';
+  $('treesV').textContent = s.trees;
+  $('crewsV').textContent = s.crews;
+
+  const r = predict(s);
+  let {risk, low, high, confidence} = r;
+  const reliable = confidence >= 0.45;
+  const band = risk<0.25 ? 'Low' : risk<0.6 ? 'Elevated' : 'High';
+  const confLabel = confidence>=0.75?'High':confidence>=0.45?'Medium':'Low';
+  const outageLikely = risk>=0.5;
+
+  if(confirmed){ const m=(low+high)/2; low=m*0.9; high=m*1.1; }
+
+  /* bulb */
+  const root = document.documentElement.style;
+  const glowOp = reliable ? 1 - 0.78*Math.pow(risk,1.4) : 0.18;
+  const hue = reliable ? 42 - 22*risk : 215;
+  const sat = reliable ? 100 : 8;
+  const light = reliable ? 62 : 55;
+  root.setProperty('--glow-op', glowOp.toFixed(2));
+  root.setProperty('--glow-color', `hsl(${hue} ${sat}% ${light}%)`);
+  root.setProperty('--glass', reliable ? `hsla(${hue} ${sat}% ${light+6}% / ${0.18+0.38*(1-risk)})` : 'rgba(150,160,175,.18)');
+  root.setProperty('--fil', reliable ? `hsl(${hue+6} 100% ${80-30*risk}%)` : '#8a93a3');
+  root.setProperty('--amp', reliable ? Math.min(0.9, risk*1.1).toFixed(2) : 0);
+  root.setProperty('--flicker-dur', (reliable && risk>0.3) ? (3.2-2.4*risk).toFixed(2)+'s' : '0s');
+  document.body.classList.toggle('dark', reliable && risk>0.75);
+
+  /* badge */
+  const badge = $('badge');
+  badge.className = 'badge' + (confirmed ? ' confirmed' : !reliable ? ' low' : '');
+  $('badgeText').textContent = confirmed ? 'Confirmed by AEP (simulated)' : !reliable ? 'Low-confidence estimate' : 'Model estimate · '+confLabel+' confidence';
+
+  /* headline */
+  let head, sub;
+  if(!reliable){
+    head = "I can't predict this one reliably.";
+    sub = "Here's what to do now, and who to call: report outages or hazards through AEP's official channels. In an emergency, call 911.";
+  } else if(risk<0.25){
+    head = "You're probably fine tonight.";
+    sub = `Outage risk: ${band}. A brief flicker is still possible.`;
+  } else if(risk<0.6){
+    head = "You could lose power. Worth getting ready.";
+    sub = `Outage risk: ${band}. If it happens, expect roughly ${dur(low)} to ${dur(high)}.`;
+  } else {
+    head = high>24 ? "Plan on being without power for a while." : "Likely out overnight. Back by morning.";
+    sub = `Outage risk: ${band}. Estimated ${dur(low)} to ${dur(high)}.`;
+  }
+  $('headline').textContent = head; $('sub').textContent = sub;
+
+  /* restoration window */
+  const panel = $('windowPanel'), arc = $('arc');
+  const showWin = reliable && risk>=0.25;
+  panel.style.opacity = showWin ? 1 : 0.35;
+  const scale = 48, l = Math.min(low,scale)/scale*100, w = Math.max(3,(Math.min(high,scale)-Math.min(low,scale))/scale*100);
+  arc.style.left = l+'%'; arc.style.width = w+'%';
+  arc.style.setProperty('--blur', (confirmed?0:2+ (1-confidence)*14)+'px');
+  arc.classList.toggle('confirmed', confirmed);
+  $('windowText').textContent = !showWin
+    ? (reliable ? 'No outage expected right now' : 'No reliable estimate available')
+    : `${clock(low)} – ${clock(high)}${confirmed?'':' (estimate)'}`;
+
+  /* checklist */
+  const tier = high<4 ? 0 : high<24 ? 1 : 2;
+  const items = [];
+  if(!reliable){
+    items.push(['Charge phones and gather flashlights as a precaution.']);
+    items.push(['Check AEP\'s official outage page for confirmed updates.']);
+  } else {
+    items.push(['Charge phones, tablets, and power banks now.']);
+    items.push(['Put flashlights where you can find them in the dark. Avoid candles.']);
+    if(tier>=1){ items.push(['Keep the fridge closed: it holds food safe for about 4 hours.']); items.push(['Fill a few water containers and gather any medicine you need.']); }
+    if(tier>=2){ items.push(['Plan a warm (or cool) place to stay and check on neighbors who may need help.']); items.push(['Use ice or a cooler for perishables. Never run a generator indoors.','safety']); }
+    if(medical){ items.unshift([tier>=1 ? 'You told us you rely on medical equipment: arrange a backup power source or a place to stay now, before the storm.' : 'You told us you rely on medical equipment: confirm your backup power works tonight.','safety']); }
+    items.push(['Stay at least 35 feet from any downed line and call 911. Assume it is live.','safety']);
+  }
+  $('checklist').innerHTML = items.map(([t,c])=>`<li class="${c||''}">${t}</li>`).join('');
+
+  /* messages */
+  const eta = `${clock(low)} to ${clock(high)}`;
+  const msgs = [
+    ['Pre-storm',  `Storm heading your way. Your outage risk is ${band.toLowerCase()}. Charge devices and review your plan now.${medical?' We\'ve noted your medical-equipment need: please confirm your backup power.':''}`],
+    ['Outage confirmed', `We\'ve confirmed an outage in your area. Crews are assessing damage. Estimated restoration: ${showWin?eta+' (estimate)':'to be determined'}. Never approach downed lines.`],
+    ['Estimate updated', `Update: ${confirmed?'AEP has confirmed':'our latest estimate is'} restoration between ${eta}. This can change with access, crews, or new damage.`],
+    ['Restored', `Power is back on at your location. If your lights are still off, check your breaker, then report it with AEP's official outage tool.`],
+  ];
+  $('tabs').innerHTML = msgs.map((m,i)=>`<button class="tab ${i===tab?'on':''}" data-i="${i}">${m[0]}</button>`).join('');
+  $('msg').innerHTML = `<small>${msgs[tab][0].toUpperCase()} · ${medical?'PRIORITY CHANNEL: SMS + CALL':'SMS + PUSH'}</small>${msgs[tab][1]}`;
+  $('alertLine').textContent = (risk>=0.25 && reliable)
+    ? `Alert-eligible: yes. We'd text you ${risk>=0.6?'6 hours':'12 hours'} before, then at outage, and with every estimate change.${medical?' Escalate to a human if no acknowledgement.':''}`
+    : (reliable ? 'Alert-eligible: standard storm alerts only.' : 'Alert-eligible: unknown. A person should review this location.');
+
+  /* why */
+  const drivers = [['Wind', s.wind/90*0.45],['Damage on your circuit', s.trees/40*0.4],['Crew shortage', (1-s.crews/20)*0.25]].sort((a,b)=>b[1]-a[1]);
+  $('why').innerHTML = `<b>Why this answer?</b> The biggest drivers right now are <b>${drivers[0][0].toLowerCase()}</b> and <b>${drivers[1][0].toLowerCase()}</b>. 
+    <b>Confidence: ${confLabel}.</b> ${reliable ? '' : 'We\'re missing enough information that a confident prediction would be misleading, so we fall back to safe general guidance. '}
+    Assumptions: damage count and crews are scenario inputs, restoration time includes travel and non-working time, and the real estimate can change as crews assess your area.
+    Only the utility can confirm a restoration time; everything marked "estimate" is a model output.`;
+  $('arc').setAttribute('aria-label','Restoration window '+eta);
+}
+
+Object.values(els).forEach(e=>e.addEventListener('input',render));
+$('tabs').addEventListener('click',e=>{ const b=e.target.closest('.tab'); if(b){ tab=+b.dataset.i; render(); } });
+render();
+</script>
+</body>
+</html>
